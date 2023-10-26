@@ -1,0 +1,29 @@
+{
+  "name": "vite-ng-app",
+  "version": "16.2.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "vite --open",
+    "build": "vite build",
+    "start": "vite preview --open"
+  },
+  "dependencies": {
+    "@angular/common": "^16.2.4",
+    "@angular/compiler": "^16.2.4",
+    "@angular/core": "^16.2.4",
+    "@angular/platform-browser": "^16.2.4",
+    "@angular/platform-browser-dynamic": "^16.2.4",
+    "rxjs": "^7.8.1",
+    "zone.js": "^0.13.3"
+  },
+  "devDependencies": {
+    "@nitedani/vite-plugin-angular": "*",
+    "sass": "^1.66.1",
+    "typescript": "5.1.6",
+    "vite": "^4.4.9"
+  },
+  "prettier": {
+    "singleQuote": true
+  }
+}
