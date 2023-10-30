@@ -1,0 +1,59 @@
+<!-- if currentUser === user loged -->
+<edit-profile-form></edit-profile-form>
+
+<div class="user-info">
+    <div class="top">
+        <div class="user-info__image">
+            <!-- profile image from database -->
+        </div>
+        <div class="user-info__buttons">
+            <!-- if currentUser === user loged -->
+            <button class="button__edit-profile secondary" (click)="openEditProfileModal($event)">Edit profile</button>
+
+            <!-- else if userLoged.follows.contains(currentUser) -->
+            <!-- <button class="button__unfollow primary">Unfollow</button> -->
+            <!-- else -->
+            <!-- <button class="button__follow secondary">Follow</button> -->
+        </div>
+    </div>
+
+    <div class="bottom">
+        <h2 class="user-info__name">Nombre del usuario</h2>
+        <p class="user-info__username">@username</p>
+
+        <p class="user-info__description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad iste error, voluptatum beatae distinctio vero at nihil, consectetur magnam vel iure enim facere. Laboriosam dolor ullam dolorum ipsum, sed incidunt!</p>
+        <!-- More info that we don't have at the moment -->
+
+        <div class="user-info__follows">
+            <p class="following">489 <span>Following</span></p>
+            <p class="followers">2145 <span>Followers</span></p>
+        </div>
+    </div> 
+</div>
+
+<div class="user-posts">
+    <div class="user-posts__tabs">
+        <!-- We need do this with router outlet -->
+
+        <a routerLink="/user/posts" routerLinkActive="active" class="tab" data-tab="posts">Posts</a>
+        <a routerLink="/user/likes" routerLinkActive="active" class="tab" data-tab="likes">Likes</a>
+        <a routerLink="/user/media" routerLinkActive="active" class="tab" data-tab="media">Media</a>
+    </div>
+
+    <div class="search-results">
+        <post-card></post-card>
+        <post-card></post-card>
+        <post-card></post-card>
+        <post-card></post-card>
+        <post-card></post-card>
+        <post-card></post-card>
+        <post-card></post-card>
+        <post-card></post-card>
+        <post-card></post-card>
+        <post-card></post-card>
+        <post-card></post-card>
+        <post-card></post-card>
+        <post-card></post-card>
+        <post-card></post-card>
+    </div>
+</div>

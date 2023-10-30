@@ -1,10 +1,10 @@
 import 'zone.js/dist/zone';
-import { bootstrapApplication } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
-import { AppComponent } from './app/app.component';
-import { AppService } from './app/app.service';
-import { importProvidersFrom } from '@angular/core';
+import './styles.sass';
 
-bootstrapApplication(AppComponent, {
-  providers: [AppService, importProvidersFrom(HttpClientModule)],
-});
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+
+import { AppModule } from './app/app.module';
+
+
+platformBrowserDynamic().bootstrapModule(AppModule)
+  .catch(err => console.error(err));

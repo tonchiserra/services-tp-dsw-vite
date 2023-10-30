@@ -1,0 +1,288 @@
+html {
+    box-sizing: border-box;
+    font-family: $font-family;
+    font-size: 10px;
+    color: $text-color;
+}
+  
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+    padding: 0;
+    margin: 0;
+}
+  
+body {
+    background: $third-color;
+    position: relative;
+    min-height: 100vh;
+    font-size: 1.4rem;
+    overflow: hidden;
+    
+    @include mobile-up {
+
+        app-root {
+            display: flex;
+        }
+    }
+
+    @include content-up {
+        width: 100%;
+        max-width: $content-width;
+        margin: 0 auto;
+        border-right: 1px solid $border-color;
+    }
+
+    .hidden {
+        display: none !important;
+    }
+
+    h1, h2, h3 {
+        font-family: $heading-font-family;
+        line-height: 1;
+    }
+
+    button, select {
+        cursor: pointer;
+        position: relative;
+        font-weight: bold;
+        font-size: 1.4rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 5px 15px;
+        border-radius: 100px;
+        transition: all 300ms ease;
+        outline: none;
+        height: 32px;
+        border: none;
+
+        &.primary {
+            background: $main-color;
+            border: 1px solid $main-color;
+            color: $third-color;
+
+            &:hover {
+                background: $third-color;
+                color: $main-color;
+            }
+        }
+
+        &.secondary {
+            background: $third-color;
+            border: 1px solid $main-color;
+            color: $main-color;
+            
+            &:hover {
+                background: $main-color;
+                color: $third-color;
+            }
+        }
+
+        &.no-btn {
+            border: none;
+            outline: none;
+            height: unset;
+            padding: unset;
+            font-weight: unset;
+            background-color: unset;
+        }
+    }
+
+    input,
+    textarea {
+        font-size: 1.4rem;
+        outline: 1px solid transparent;
+        transition: all 300ms ease;
+    
+        &:focus,
+        &:hover {
+            outline: 1px solid $main-color;
+        }
+    }
+
+    input {
+        background: $gray-color;
+        border-radius: 100px;
+        border: none;
+    }
+
+    label {
+        cursor: pointer;
+    }
+
+    input[type=number]::-webkit-inner-spin-button, 
+    input[type=number]::-webkit-outer-spin-button { 
+        -webkit-appearance: none; 
+        margin: 0; 
+    }
+    input[type=number] { -moz-appearance:textfield; }
+
+    input[type="checkbox"] {
+        appearance: none;
+        background: $third-color;
+        border: 1px solid $main-color;
+        width: 15px;
+        height: 15px;
+        cursor: pointer;
+        border-radius: 5px;
+        
+        @include mobile-up {
+            width: 20px;
+            height: 20px;
+        }
+
+        & + img {
+            display: none;
+        }
+
+        &:checked {
+            background: $main-color;
+
+            & + img {
+                display: unset;
+                position: absolute;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                margin: auto 0;
+                width: 15px;
+                height: 15px;
+                pointer-events: none;
+
+                @include mobile-up {
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+        }
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    a {
+        text-decoration: none;
+        color: $second-color;
+        position: relative;
+        transition: all 300ms ease;
+    
+        &.underline::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0px;
+            height: 1px;
+            background: $second-color;
+            transition: all 300ms ease;
+        }
+    
+        &.underline:hover::after {
+            width: 100%;
+        }
+    
+        &[disabled] {
+            pointer-events: none;
+            opacity: .3;
+        }
+    }
+      
+    .page-width {
+        width: 100%;
+        max-width: $content-width;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+      
+    .d-none {
+        display: none;
+    }
+
+    .form-container {
+        text-align: center;
+
+        h2 {
+            font-size: 3rem;
+        }
+        
+        form {
+            background-color: $white-color;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: start;
+
+            .field {
+                display: flex;
+                flex-direction: column;
+                gap: 7px;
+                width: 100%;
+
+                .top {
+                    width: 100%;
+                    display: flex;
+                    align-items: flex-end;
+                    justify-content: space-between;
+                }
+
+                input {
+                    padding: 5px 15px;
+                    height: 36px;
+                }
+
+                textarea {
+                    height: 72px;
+                    width: 100%;
+                    resize: none;
+                    padding: 10px 10px;
+                    font-family: $font-family;
+                    color: $text-color;
+                    border: none;
+                    background-color: $gray-color;
+                    border-radius: 10px;
+                    &::-webkit-scrollbar {
+                        display: none;
+                    }
+                }
+
+                .has-error {
+                    outline: 1px solid $error-color;
+                }
+
+                .error-message {
+                    font-size: 1.2rem;
+                    color: $error-color;
+
+                    &:empty {
+                        display: none;
+                    }
+                }
+            }
+
+            .group-field {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+                gap: 10px;
+            }
+
+            button {
+                margin-top: 10px;
+                height: 36px;
+            }
+        }
+
+        .message {
+            margin-bottom: 20px;
+
+            &.secondary {
+                font-size: 1.2rem;
+            }
+        }
+    }
+}
